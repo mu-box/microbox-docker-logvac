@@ -17,7 +17,7 @@ RUN curl \
       -f \
       -k \
       -o /usr/local/bin/logvac \
-      https://s3.amazonaws.com/tools.nanopack.io/logvac/linux/amd64/logvac && \
+      https://d3ep67zochz54j.cloudfront.net/logvac/linux/amd64/logvac && \
     chmod 755 /usr/local/bin/logvac
 
 # Download md5 (used to perform updates in hooks)
@@ -25,13 +25,13 @@ RUN curl \
       -f \
       -k \
       -o /var/nanobox/logvac.md5 \
-      https://s3.amazonaws.com/tools.nanopack.io/logvac/linux/amd64/logvac.md5
+      https://d3ep67zochz54j.cloudfront.net/logvac/linux/amd64/logvac.md5
 
 # Install hooks
 RUN curl \
       -f \
       -k \
-      https://s3.amazonaws.com/tools.nanobox.io/hooks/logvac-stable.tgz \
+      https://d1ormdui8qdvue.cloudfront.net/hooks/logvac-stable.tgz \
         | tar -xz -C /opt/nanobox/hooks
 
 # Download hooks md5 (used to perform updates)
@@ -39,7 +39,7 @@ RUN curl \
       -f \
       -k \
       -o /var/nanobox/hooks.md5 \
-      https://s3.amazonaws.com/tools.nanobox.io/hooks/logvac-stable.md5
+      https://d1ormdui8qdvue.cloudfront.net/hooks/logvac-stable.md5
 
 # Run runit automatically
 CMD [ "/opt/gonano/bin/nanoinit" ]
