@@ -1,4 +1,4 @@
-## nanobox-docker-logvac ![Build Status Image](https://travis-ci.org/nanobox-io/nanobox-docker-logvac.svg)
+## nanobox-docker-logvac [![Build Status Image](https://travis-ci.org/nanobox-io/nanobox-docker-logvac.svg)](https://travis-ci.org/nanobox-io/nanobox-docker-logvac)
 
 This repo contains the files necessary to create the logvac docker image for [Nanobox](http://nanobox.io) consumption.
 
