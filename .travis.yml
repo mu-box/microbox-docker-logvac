@@ -23,6 +23,7 @@ after_success:
   - docker tag ${NAMESPACE}/logvac:squashed ${NAMESPACE}/logvac:beta;
   - docker push ${REMOTE}${NAMESPACE}/logvac:beta;
   - if [ "$BRANCH" == "master" ]; then
+    docker tag ${NAMESPACE}/logvac:squashed ${NAMESPACE}/logvac;
     docker push ${REMOTE}${NAMESPACE}/logvac;
     else
     docker tag ${NAMESPACE}/logvac:squashed ${NAMESPACE}/logvac:${BRANCH//\//_};
