@@ -7,7 +7,7 @@ before_install:
   - docker version
   - sudo apt-get -y install python-pip
   - sudo pip install docker==2.7.0 docker-squash
-  - docker build -t nanobox/logvac .
+  - docker build -t mubox/logvac .
 
 script: sudo test/run_all.sh
 
@@ -15,7 +15,7 @@ after_success:
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   - docker build -t ${NAMESPACE}/logvac .
-  - docker-squash -t ${NAMESPACE}/logvac:squashed -f nanobox/runit --tmp-dir /var/tmp/squasher ${NAMESPACE}/logvac
+  - docker-squash -t ${NAMESPACE}/logvac:squashed -f mubox/base --tmp-dir /var/tmp/squasher ${NAMESPACE}/logvac
   - docker tag ${NAMESPACE}/logvac:squashed ${NAMESPACE}/logvac:beta;
   - docker push ${REMOTE}${NAMESPACE}/logvac:beta;
   - if [ "$BRANCH" == "master" ]; then
